@@ -16,16 +16,54 @@
         </div>
     </div>
     <div class="guitar__generator">
-        <fieldset class="guitar__price">
-            <h2>How much do you want to spend?</h2>
-            <input type="radio" name="guitarPrice" id="price$" value="price$">
-            <label for="price$">$</label>
-            <input type="radio" name="guitarPrice" id="price$$" value="price$$">
-            <label for="price$$">$$</label>
-            <input type="radio" name="guitarPrice" id="price$$$" value="price$$$">
-            <label for="price$$$">$$$</label>
-        </fieldset>
-        
+        <!-- MAKE SURE YOUR INPUT IDS ARE THE SAME HAS YOUR LABEL FORS! -->
+        <form action="">
+            <fieldset class="guitar__price">
+                <h2>How much do you want to spend?</h2>
+                <input type="radio" name="guitarPrice" id="price$" value="$">
+                <label for="price$">$</label>
+                <input type="radio" name="guitarPrice" id="price$$" value="$$">
+                <label for="price$$">$$</label>
+                <input type="radio" name="guitarPrice" id="price$$$" value="$$$">
+                <label for="price$$$">$$$</label>
+            </fieldset>
+            <fieldset class="guitar__skill">
+                <h2>What is your skill level?</h2>
+                <input type="radio" name="guitarSkill" id="beginner" value="Beginner">
+                <label for="beginner">Beginner</label>
+                <input type="radio" name="guitarSkill" id="intermediate" value="Intermediate">
+                <label for="intermediate">Intermediate</label>
+                <input type="radio" name="guitarSkill" id="expert" value="Expert">
+                <label for="expert">Expert</label>
+            </fieldset>
+            <fieldset class="guitar__Genre">
+                <h2>What type of music do you want to play?</h2>
+                <input type="radio" name="guitarGenre" id="rock" value="Rock">
+                <label for="rock">Rock</label>
+                <input type="radio" name="guitarGenre" id="blues" value="Blues">
+                <label for="guitarGenreBlues">Blues</label>
+                <input type="radio" name="guitarGenre" id="country" value="Country">
+                <label for="country">Country</label>
+                <input type="radio" name="guitarGenre" id="metal" value="Metal">
+                <label for="metal">Metal</label>
+                <input type="radio" name="guitarGenre" id="spaceAge" value="SpaceAge">
+                <label for="spaceAge">Space Age</label>
+            </fieldset>
+            <fieldset class="guitar__Usage">
+                <h2>What is your goal when buying a guitar?</h2>
+                <input type="radio" name="guitarGenre" id="rock" value="Rock">
+                <label for="guitarGenreRock">Rock</label>
+                <input type="radio" name="guitarGenre" id="blues" value="Blues">
+                <label for="guitarGenreBlues">Blues</label>
+                <input type="radio" name="guitarGenre" id="country" value="Country">
+                <label for="guitarGenreCountry">Country</label>
+            </fieldset>
+            <div class="generator__submit">
+                <input type="submit" value="Find My Axe!">
+            </div>
+        </form>
     </div>
+    <script src='https://code.jquery.com/jquery-3.2.1.min.js' integrity='sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4='crossorigin='anonymous'></script>
+    <script src="./scripts/scripts.js"></script>    
 </body>
 </html>
