@@ -11,29 +11,50 @@
 const guitarGen = {};
 
 guitarGen.inventory = [
+    // $ PRICED GUITARS START HERE!
     {
-        guitar: "Squier Classic Vibe Stratocaster",
-        skill: ["Beginner","Expert"],
+        guitar: "Squier Classic Vibe Stratocaster 60s",
+        skill: ["Beginner"],
         price: "$",
         genre: ["Blues"]
     },
     {
+        guitar: "Squier Classic Vibe Telecaster 50s",
+        skill: ["Beginner"],
+        price: "$",
+        genre: ["Country"]
+    },
+    {
+        guitar: "Ibanez RG450DX",
+        skill: ["Beginner","Intermediate","Expert"],
+        price: "$",
+        genre: ["Rock","Metal"]
+    },
+    {
         guitar: "Fender Standard Stratocaster",
-        skill: ["Beginner", "Intermediate"],
+        skill: ["Intermediate", "Expert"],
         price: "$",
         genre: ["Rock","Blues"]
     },
     {
         guitar: "Fender Standard Telecaster",
-        skill: ["Beginner", "Intermediate"],
+        skill: ["Intermediate", "Expert"],
         price: "$",
-        genre: ["Rock","Country"]
+        genre: ["Rock","Blues","Country"]
     },
     {
         guitar: "Gretsch Double Jet",
-        skill: ["Beginner", "Intermediate"],
+        skill: ["Intermediate", "Expert"],
         price: "$",
         genre: ["Rock"]
+    },
+    // $ PRICED GUITARS END HERE!
+    // $$ PRICED GUITARS START HERE!
+    {
+        guitar: "Gibson SG Standard",
+        skill: ["Beginner","Intermediate","Expert"],
+        price: "$$",
+        genre: ["Rock","Metal"]
     },
     {
         guitar: "Fender EOB Stratocaster",
@@ -42,11 +63,45 @@ guitarGen.inventory = [
         genre: ["Rock","SpaceAge"]
     },
     {
-        guitar: "Gibson SG Standard",
-        skill: ["Intermediate"],
+        guitar: "Gretsch Country Gentleman",
+        skill: ["Intermediate", "Expert"],
         price: "$$$",
-        genre: ["Rock","Metal"]
+        genre: ["Country"]
     },
+    // $$ PRICED GUITARS END HERE!
+    // $$$ PRICED GUITARS START HERE!
+    {
+        guitar: "Fender Custom Shop John Mayer Limited Edition Black1",
+        skill: ["Expert"],
+        price: "$$$",
+        genre: ["Blues"]
+    },
+    {
+        guitar: "Jimmy Page Number Two Les Paul",
+        skill: ["Expert"],
+        price: "$$$",
+        genre: ["Rock"]
+    },
+    {
+        guitar: "Gretsch White Falcon",
+        skill: ["Expert"],
+        price: "$$$",
+        genre: ["Country"]
+    },
+    {
+        guitar: "ESP Orihalcon",
+        skill: ["Expert"],
+        price: "$$$",
+        genre: ["Metal"]
+    },
+    {
+        guitar: "The Destroyer by Mark Dalzell",
+        skill: ["Expert"],
+        price: "$$$",
+        genre: ["SpaceAge"]
+    },    
+    
+    // $$$ PRICED GUITARS END HERE!
 ];
 
 //    const selectedGenre = 
@@ -74,8 +129,6 @@ $(function() {
             return guitar.skill.includes(userSkill);
         }).filter(function(guitar) {
             return guitar.genre.includes(userGenre);
-        // }).filter(function(guitar) {
-
         });
         console.log(suggestedSelection);
     });
