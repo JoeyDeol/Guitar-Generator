@@ -25,10 +25,10 @@ guitarGen.inventory = [
         genre: ["Country"]
     },
     {
-        guitar: "Ibanez RG450DX",
-        skill: ["Beginner","Intermediate","Expert"],
+        guitar: "Gretsch Double Jet",
+        skill: ["Intermediate", "Expert"],
         price: "$",
-        genre: ["Rock","Metal"]
+        genre: ["Rock"]
     },
     {
         guitar: "Fender Standard Stratocaster",
@@ -43,30 +43,43 @@ guitarGen.inventory = [
         genre: ["Rock","Blues","Country"]
     },
     {
-        guitar: "Gretsch Double Jet",
-        skill: ["Intermediate", "Expert"],
+        guitar: "Ibanez RG450DX",
+        skill: ["Beginner","Intermediate","Expert"],
         price: "$",
-        genre: ["Rock"]
+        genre: ["Rock","Metal"]
     },
     // $ PRICED GUITARS END HERE!
     // $$ PRICED GUITARS START HERE!
+    
     {
         guitar: "Gibson SG Standard",
-        skill: ["Beginner","Intermediate","Expert"],
+        skill: ["Intermediate","Expert"],
         price: "$$",
-        genre: ["Rock","Metal"]
+        genre: ["Rock"]
     },
     {
-        guitar: "Fender EOB Stratocaster",
-        skill: ["Intermediate","Expert"],
-        price: "$$", 
-        genre: ["Rock","SpaceAge"]
+        guitar: "American Professional Series Stratocaster",
+        skill: ["Intermediate", "Expert"],
+        price: "$$",
+        genre: ["Blues"]
     },
     {
         guitar: "Gretsch Country Gentleman",
         skill: ["Intermediate", "Expert"],
-        price: "$$$",
+        price: "$$",
         genre: ["Country"]
+    },
+    {
+        guitar: "Gibson Flying V",
+        skill: ["Intermediate", "Expert"],
+        price: "$$",
+        genre: ["Metal"]
+    },    
+    {
+        guitar: "Fender EOB Stratocaster",
+        skill: ["Intermediate","Expert"],
+        price: "$$", 
+        genre: ["SpaceAge"]
     },
     // $$ PRICED GUITARS END HERE!
     // $$$ PRICED GUITARS START HERE!
@@ -104,19 +117,12 @@ guitarGen.inventory = [
     // $$$ PRICED GUITARS END HERE!
 ];
 
-//    const selectedGenre = 
-   
-//    guitarGen.inventory.forEach(function(item){
-//         let userInput = item.genre[selectedItems];
-//         if(user)
-//    })
+guitarGen.init = function() {
+    console.log("working") 
+    guitarGen.pickAGuitar();
+};
 
-$(function() {
-    $('.landing-start input').on('click', function(e) {
-        e.preventDefault();
-        console.log('I have been clicked!');
-    });
-
+guitarGen.pickAGuitar = function() {
     $('form').on('submit', function(event) {
         event.preventDefault();
         const userPrice = $('input[name=guitarPrice]:checked').val();
@@ -130,6 +136,25 @@ $(function() {
         }).filter(function(guitar) {
             return guitar.genre.includes(userGenre);
         });
-        console.log(suggestedSelection);
+        if ((userPrice === '$$' || userPrice === '$$$')  && userSkill === 'Beginner'){
+            swal({
+                title: 'Slow Down Slayer! Save Your Bacon!',  text: 'Fledgling Rock-Gods should avoiding spending so much coin!',
+                icon:'warning',
+                button: 'Go Back and Pay Less',
+            });
+        }
+        guitarGen.showMyAxe(suggestedSelection[0]);
+    });
+};
+
+guitarGen.showMyAxe = function(selectedGuitar) {
+    $('body').append(`<h1>${selectedGuitar.guitar}</h1>`);
+};
+
+$(function() {
+    guitarGen.init();
+    $('.landing-start input').on('click', function(e) {
+        e.preventDefault();
+        console.log('I have been clicked!');
     });
 });    
