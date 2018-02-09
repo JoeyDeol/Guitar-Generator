@@ -16,19 +16,22 @@ guitarGen.inventory = [
         guitar: "Squier Classic Vibe Stratocaster 60s",
         skill: ["Beginner"],
         price: "$",
-        genre: ["Blues"]
+        genre: ["Blues"],
+        img:'classicVibeStrat.jpg'
     },
     {
         guitar: "Squier Classic Vibe Telecaster 50s",
         skill: ["Beginner"],
         price: "$",
-        genre: ["Country"]
+        genre: ["Country"],
+        img: 'classicVibeTele.jpg'
     },
     {
         guitar: "Gretsch Double Jet",
         skill: ["Intermediate", "Expert"],
         price: "$",
-        genre: ["Rock"]
+        genre: ["Rock"],
+        img: 'gretschDoubleJet.png'
     },
     {
         guitar: "Fender Standard Stratocaster",
@@ -43,10 +46,18 @@ guitarGen.inventory = [
         genre: ["Rock","Blues","Country"]
     },
     {
-        guitar: "Ibanez RG450DX",
-        skill: ["Beginner","Intermediate","Expert"],
+        guitar: "Fender Starcaster",
+        skill: ["Beginner", "Intermediate", "Expert"],
         price: "$",
-        genre: ["Rock","Metal"]
+        genre: ["SpaceAge"],
+        img: "starcaster.jpg"
+    },
+    {
+        guitar: "Ibanez RG450DX",
+        skill: ["Beginner", "Intermediate", "Expert"],
+        price: "$",
+        genre: ["Rock", "Metal"],
+        img: 'ibanez.jpg'
     },
     // $ PRICED GUITARS END HERE!
     // $$ PRICED GUITARS START HERE!
@@ -84,6 +95,30 @@ guitarGen.inventory = [
     // $$ PRICED GUITARS END HERE!
     // $$$ PRICED GUITARS START HERE!
     {
+        guitar: "Gretsch White Penguin",
+        skill: ["Intermediate"],
+        price: "$$$",
+        genre: ["Rock","Blues"]
+    },
+    {
+        guitar: "Gretsch White Falcon",
+        skill: ["Intermediate"],
+        price: "$$$",
+        genre: ["Country"]
+    },
+    {
+        guitar: "PRS Paul Reed Smith Custom 24",
+        skill: ["Intermediate"],
+        price: "$$$",
+        genre: ["Metal"]
+    },
+    {
+        guitar: "65 Supro Martinique",
+        skill: ["Intermediate"],
+        price: "$$$",
+        genre: ["SpaceAge"]
+    },
+    {
         guitar: "Fender Custom Shop John Mayer Limited Edition Black1",
         skill: ["Expert"],
         price: "$$$",
@@ -105,7 +140,8 @@ guitarGen.inventory = [
         guitar: "ESP Orihalcon",
         skill: ["Expert"],
         price: "$$$",
-        genre: ["Metal"]
+        genre: ["Metal"],
+        img: "orihalcon.png"
     },
     {
         guitar: "The Destroyer by Mark Dalzell",
@@ -113,13 +149,33 @@ guitarGen.inventory = [
         price: "$$$",
         genre: ["SpaceAge"]
     },    
-    
     // $$$ PRICED GUITARS END HERE!
 ];
 
 guitarGen.init = function() {
     guitarGen.pickAGuitar();
+    guitarGen.choicePicked();
+    guitarGen.resetButton();
 };
+
+guitarGen.choicePicked = function () {
+    $('input').on('change', function(){
+        const currentButton = $(this);
+        const checkedRadio = $(this).is(':checked');
+        if(checkedRadio) {
+            guitarGen.colorChange(currentButton);
+        }
+    })
+};
+
+guitarGen.colorChange = function (pickedButton) {
+    console.log(pickedButton.next());
+    const labelToColor = pickedButton.next();
+    $('label').removeClass();
+    $(labelToColor[0]).addClass('classAdd');
+};
+
+// WHAT YOU WANT TO DO IS REMOVE CLASSES FROM ALL LABELS WHEN THEY ARE SELECTED, THEN ADD CLASS OF THE NEW COLORING CLASS!
 
 guitarGen.pickAGuitar = function() {
     $('form').on('submit', function(event) {
@@ -137,11 +193,12 @@ guitarGen.pickAGuitar = function() {
         });
         if ((userPrice === '$$' || userPrice === '$$$')  && userSkill === 'Beginner'){
             swal({
-                title: 'Slow Down Slayer! Save Your Bacon!',  text: 'Fledgling Rock-Gods should avoiding spending so much coin!',
+                title: 'Slow Your Roll! Save Your Bacon!',  text: 'Fledgling Rock-Gods should avoiding spending so much coin!',
                 icon:'warning',
                 button: 'Go Back and Pay Less',
             });
         }
+        console.log(suggestedSelection);
         guitarGen.showMyAxe(suggestedSelection[0]);
     });
 };
@@ -150,11 +207,23 @@ guitarGen.showMyAxe = function(selectedGuitar) {
     $('.guitar-showcase').append(`
         <div class="displayedGuitar">
             <h2>${selectedGuitar.guitar}</h2>
-
+            <img src="./assets/${selectedGuitar.img}" alt="guitar image">
+            <button class="reset-button">Forge Yourself a New Axe!</button>
         </div>
-        
     `);
 };
+
+guitarGen.resetButton = function() {
+    $('.guitar-showcase').on('click','.reset-button',function(e) {
+        e.preventDefault();
+        $('input[type=radio]').prop('checked', false);
+        $('html, body').animate({
+            scrollTop: $('#beginning').offset().top
+        }, 1000);
+    });
+};
+
+
 
 $(function() {
     guitarGen.init();
