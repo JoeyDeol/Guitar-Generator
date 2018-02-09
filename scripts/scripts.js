@@ -150,7 +150,7 @@ guitarGen.showMyAxe = function(selectedGuitar) {
     $('.guitar-showcase').append(`
         <div class="displayedGuitar">
             <h2>${selectedGuitar.guitar}</h2>
-            
+
         </div>
         
     `);
