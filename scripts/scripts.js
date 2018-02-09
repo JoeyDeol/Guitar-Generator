@@ -118,7 +118,6 @@ guitarGen.inventory = [
 ];
 
 guitarGen.init = function() {
-    console.log("working") 
     guitarGen.pickAGuitar();
 };
 
@@ -148,7 +147,13 @@ guitarGen.pickAGuitar = function() {
 };
 
 guitarGen.showMyAxe = function(selectedGuitar) {
-    $('body').append(`<h1>${selectedGuitar.guitar}</h1>`);
+    $('.guitar-showcase').append(`
+        <div class="displayedGuitar">
+            <h2>${selectedGuitar.guitar}</h2>
+            
+        </div>
+        
+    `);
 };
 
 $(function() {
