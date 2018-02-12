@@ -1,13 +1,3 @@
-// I will design a landing page that has a button to start the guitar generator. This button will have an event watcher on it, that once triggered, will disappear the landing portion of the site and then bring up the guitar generator.
-    // This can probably be achieved through toggling classes of both the landing div and the generator div, switching them between display:none and display:block.
-
-//Next I will make it so that in the guitar generator there are 4 categories (this could scale up to more) and they have a few options each. 
-    // each of the options will be retrieved as userInputs, and depending on which inputs are picked, I will try to run .filter() array methods to use the inputs to pear down the possible outputs. 
-
-// At the bottom of the generator page there will be an submit button, which will have another event watcher that will do a similar toggling of classes to the first button, but will instead toggle only for the generator section and the results section.
-
-// The final page will have the filtered result and a few extra buttons to show my personal choice and ryan's personal choice in guitar as well as a quiz again button to go back to the landing/starting section of the generator.
-
 const guitarGen = {};
 
 guitarGen.inventory = [
@@ -17,47 +7,49 @@ guitarGen.inventory = [
         skill: ["Beginner"],
         price: "$",
         genre: ["Blues"],
-        img:'classicVibeStrat.jpg'
+        img:'classicVibeStrat.jpg',
     },
     {
         guitar: "Squier Classic Vibe Telecaster 50s",
         skill: ["Beginner"],
         price: "$",
         genre: ["Country"],
-        img: 'classicVibeTele.jpg'
+        img: 'classicVibeTele.jpg',
     },
     {
         guitar: "Gretsch Double Jet",
         skill: ["Intermediate", "Expert"],
         price: "$",
         genre: ["Rock"],
-        img: 'gretschDoubleJet.png'
+        img: 'gretschDoubleJet.png',
     },
     {
         guitar: "Fender Standard Stratocaster",
         skill: ["Intermediate", "Expert"],
         price: "$",
-        genre: ["Rock","Blues"]
+        genre: ["Rock","Blues"],
+        img: 'standardStrat.jpg',
     },
     {
         guitar: "Fender Standard Telecaster",
         skill: ["Intermediate", "Expert"],
         price: "$",
-        genre: ["Rock","Blues","Country"]
+        genre: ["Rock","Blues","Country"],
+        img: 'standardTele.jpg',
     },
     {
         guitar: "Fender Starcaster",
         skill: ["Beginner", "Intermediate", "Expert"],
         price: "$",
         genre: ["SpaceAge"],
-        img: "starcaster.jpg"
+        img: "starcaster.jpg",
     },
     {
         guitar: "Ibanez RG450DX",
         skill: ["Beginner", "Intermediate", "Expert"],
         price: "$",
         genre: ["Rock", "Metal"],
-        img: 'ibanez.jpg'
+        img: 'ibanez.jpg',
     },
     // $ PRICED GUITARS END HERE!
     // $$ PRICED GUITARS START HERE!
@@ -66,31 +58,36 @@ guitarGen.inventory = [
         guitar: "Gibson SG Standard",
         skill: ["Intermediate","Expert"],
         price: "$$",
-        genre: ["Rock"]
+        genre: ["Rock"],
+        img: 'sgStandard.jpg',
     },
     {
         guitar: "American Professional Series Stratocaster",
         skill: ["Intermediate", "Expert"],
         price: "$$",
-        genre: ["Blues"]
+        genre: ["Blues"],
+        img: 'americanProfStrat.jpg',
     },
     {
         guitar: "Gretsch Country Gentleman",
         skill: ["Intermediate", "Expert"],
         price: "$$",
-        genre: ["Country"]
+        genre: ["Country"],
+        img: 'gretschCountry.png',
     },
     {
         guitar: "Gibson Flying V",
         skill: ["Intermediate", "Expert"],
         price: "$$",
-        genre: ["Metal"]
+        genre: ["Metal"],
+        img: 'flyingV.jpg',
     },    
     {
         guitar: "Fender EOB Stratocaster",
         skill: ["Intermediate","Expert"],
         price: "$$", 
-        genre: ["SpaceAge"]
+        genre: ["SpaceAge"],
+        img: 'eobStrat.jpg',
     },
     // $$ PRICED GUITARS END HERE!
     // $$$ PRICED GUITARS START HERE!
@@ -98,43 +95,44 @@ guitarGen.inventory = [
         guitar: "Gretsch White Penguin",
         skill: ["Intermediate"],
         price: "$$$",
-        genre: ["Rock","Blues"]
+        genre: ["Rock","Blues"],
+        img: 'gretschPenguin.png',
     },
     {
         guitar: "Gretsch White Falcon",
-        skill: ["Intermediate"],
+        skill: ["Intermediate","Expert"],
         price: "$$$",
-        genre: ["Country"]
+        genre: ["Country"],
+        img: 'gretschFalcon.png',
     },
     {
-        guitar: "PRS Paul Reed Smith Custom 24",
+        guitar: "PRS Custom 24",
         skill: ["Intermediate"],
         price: "$$$",
-        genre: ["Metal"]
+        genre: ["Metal"],
+        img: 'custom24.png',
     },
     {
         guitar: "65 Supro Martinique",
         skill: ["Intermediate"],
         price: "$$$",
-        genre: ["SpaceAge"]
+        genre: ["SpaceAge"],
+        img: 'supro.png',
     },
     {
         guitar: "Fender Custom Shop John Mayer Limited Edition Black1",
         skill: ["Expert"],
         price: "$$$",
-        genre: ["Blues"]
+        genre: ["Blues"],
+        img: 'black1.jpg',
+
     },
     {
         guitar: "Jimmy Page Number Two Les Paul",
         skill: ["Expert"],
         price: "$$$",
-        genre: ["Rock"]
-    },
-    {
-        guitar: "Gretsch White Falcon",
-        skill: ["Expert"],
-        price: "$$$",
-        genre: ["Country"]
+        genre: ["Rock"],
+        img: 'page1.jpg',
     },
     {
         guitar: "ESP Orihalcon",
@@ -147,15 +145,27 @@ guitarGen.inventory = [
         guitar: "The Destroyer by Mark Dalzell",
         skill: ["Expert"],
         price: "$$$",
-        genre: ["SpaceAge"]
+        genre: ["SpaceAge"],
+        img: 'theDestroyer.jpg',
     },    
     // $$$ PRICED GUITARS END HERE!
 ];
 
+// JS FUNCTIONS START HERE!
+
 guitarGen.init = function() {
     guitarGen.pickAGuitar();
+    guitarGen.smoothStart();
     guitarGen.choicePicked();
+    guitarGen.joeyButton();
+    guitarGen.ryanButton();
     guitarGen.resetButton();
+};
+
+guitarGen.smoothStart = function() {
+    $('a').smoothScroll({
+        speed: 800,
+    });
 };
 
 guitarGen.choicePicked = function () {
@@ -169,13 +179,13 @@ guitarGen.choicePicked = function () {
 };
 
 guitarGen.colorChange = function (pickedButton) {
-    console.log(pickedButton.next());
     const labelToColor = pickedButton.next();
-    $('label').removeClass();
+    // $('.guitar__price label').removeClass('classAdd');
+    // $('.guitar__skill label').removeClass('classAdd');
     $(labelToColor[0]).addClass('classAdd');
 };
 
-// WHAT YOU WANT TO DO IS REMOVE CLASSES FROM ALL LABELS WHEN THEY ARE SELECTED, THEN ADD CLASS OF THE NEW COLORING CLASS!
+// COME BACK TO THE ABOVE IF YOU HAVE TIME, TRY TO MAKE IT SO THAT COLOR IS REMOVED WHEN ANOTHER OPTION UNDER THE SAME QUESTION IS SELECTED.
 
 guitarGen.pickAGuitar = function() {
     $('form').on('submit', function(event) {
@@ -197,8 +207,12 @@ guitarGen.pickAGuitar = function() {
                 icon:'warning',
                 button: 'Go Back and Pay Less',
             });
-        }
-        console.log(suggestedSelection);
+            $('input[type=radio]').prop('checked', false);
+            $('label').removeClass('classAdd');
+        };
+        $('html, body').animate({
+            scrollTop: $('.guitar-showcase').offset().top
+        }, 800);
         guitarGen.showMyAxe(suggestedSelection[0]);
     });
 };
@@ -209,26 +223,68 @@ guitarGen.showMyAxe = function(selectedGuitar) {
             <h2>${selectedGuitar.guitar}</h2>
             <img src="./assets/${selectedGuitar.img}" alt="guitar image">
             <button class="reset-button">Forge Yourself a New Axe!</button>
+            <div class="extraPicks">
+                <button class="joeyPick">Joey's Pick</button>
+                <button class="ryanPick">Ryan's Pick</button>
+            </div>
         </div>
     `);
 };
+
+guitarGen.joeyButton = function () {
+    $('.guitar-showcase').on('click', '.joeyPick', function (e) {
+        e.preventDefault();
+        $('input[type=radio]').prop('checked', false);
+        $('label').removeClass('classAdd');
+        $('.displayedGuitar').remove();
+        $('.guitar-showcase').append(`
+        <div class="displayedGuitar">
+            <h2>Johnny Marr Jaguar</h2>
+            <img src="./assets/johnnyMarr.jpg" alt="guitar image">
+            <button class="reset-button">Forge Yourself a New Axe!</button>
+            <div class="extraPicks">
+                <button class="ryanPick">Ryan's Pick</button>
+            </div>
+        </div>
+        `);
+    });
+}; 
+
+guitarGen.ryanButton = function () {
+    $('.guitar-showcase').on('click', '.ryanPick', function (e) {
+        e.preventDefault();
+        $('input[type=radio]').prop('checked', false);
+        $('label').removeClass('classAdd');
+        $('.displayedGuitar').remove();
+        $('.guitar-showcase').append(`
+        <div class="displayedGuitar">
+            <h2>Bolt-On PRS CE 24</h2>
+            <img src="./assets/prsCE24.jpg" alt="guitar image">
+            <button class="reset-button">Forge Yourself a New Axe!</button>
+            <div class="extraPicks">
+                <button class="joeyPick">Joey's Pick</button>
+            </div>
+        </div>
+        `);
+    });
+}; 
 
 guitarGen.resetButton = function() {
     $('.guitar-showcase').on('click','.reset-button',function(e) {
         e.preventDefault();
         $('input[type=radio]').prop('checked', false);
+        $('label').removeClass('classAdd');
+        $('.displayedGuitar').remove();
         $('html, body').animate({
             scrollTop: $('#beginning').offset().top
-        }, 1000);
+        }, 800);
     });
 };
 
+// JS FUNCTIONS END HERE!
 
-
+// DOCUMENT READY STARTS HERE!
 $(function() {
     guitarGen.init();
-    $('.landing-start input').on('click', function(e) {
-        e.preventDefault();
-        console.log('I have been clicked!');
-    });
 });    
+// DOCUMENT READY ENDS HERE!

@@ -1,0 +1,77 @@
+.generator {
+    background-color: #12162D; 
+    color: rgb(139,116,31); 
+    text-align: center;
+    padding-top: 150px;
+    padding-bottom: 125px;
+}
+
+.guitar__generator h2 {
+    margin-bottom: 50px;
+    @include remCalc(28);
+}
+
+.guitar__generator input {
+    display: none;
+}
+
+.guitar__generator label {
+    display: inline-block;
+    margin-bottom: 50px;
+    padding: 10px 40px;
+    border-radius: 25px;
+    border: 3px solid rgb(139,116,31);
+    @include remCalc(18);
+    transition: all 0.5s;
+} 
+
+.guitar__generator label:hover {
+    color: #f7f7ff;
+    border: 3px solid #f7f7ff;
+}
+
+.guitar__price__choices {
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    width: 50%;
+}
+
+.guitar__skill__choices {
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    width: 65%; 
+}
+
+.guitar__Genre__choices {
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    width: 90%; 
+}
+
+.generator__submit input {
+    display: block;
+    margin: 0 auto;
+    padding: 10px 30px;
+    color: #f7f7ff;
+    border-radius: 25px;
+    border: 3px solid #f7f7ff;
+    visibility: visible;
+    @include remCalc(18);
+    transition: all 0.5s;
+}
+
+.generator__submit input:hover {
+    color: rgb(139,116,31);
+    border: 3px solid rgb(139,116,31);
+}
+
+.classAdd {
+    color: #f7f7ff;
+    border: 3px solid #f7f7ff;
+}

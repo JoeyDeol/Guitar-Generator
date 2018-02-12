@@ -159,12 +159,17 @@ h4 {
 img {
   width: 100%; }
 
-blockquote {
-  margin: 0px;
-  padding: 0px; }
+input {
+  border: none;
+  background: none;
+  color: inherit; }
 
 fieldset {
   border: none; }
+
+button {
+  border: none;
+  background: none; }
 
 nav {
   margin: 0px;
@@ -187,37 +192,165 @@ p {
   padding: 0px; }
 
 header {
-  height: 100vh;
   text-align: center;
-  background-color: #d8b4e2;
-  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='100%25'%3E%3Cdefs%3E%3ClinearGradient id='a' gradientUnits='userSpaceOnUse' x1='0' x2='0' y1='0' y2='100%25' gradientTransform='rotate(228)'%3E%3Cstop offset='0' stop-color='%23d8b4e2'/%3E%3Cstop offset='1' stop-color='%234FE'/%3E%3C/linearGradient%3E%3Cpattern patternUnits='userSpaceOnUse' id='b' width='300' height='249.9' x='0' y='0' viewBox='0 0 1080 900'%3E%3Cg fill-opacity='0.1'%3E%3Cpolygon fill='%23444' points='90%2C150 0%2C300 180%2C300'/%3E%3Cpolygon points='90%2C150 180%2C0 0%2C0'/%3E%3Cpolygon fill='%23AAA' points='270%2C150 360%2C0 180%2C0'/%3E%3Cpolygon fill='%23DDD' points='450%2C150 360%2C300 540%2C300'/%3E%3Cpolygon fill='%23999' points='450%2C150 540%2C0 360%2C0'/%3E%3Cpolygon points='630%2C150 540%2C300 720%2C300'/%3E%3Cpolygon fill='%23DDD' points='630%2C150 720%2C0 540%2C0'/%3E%3Cpolygon fill='%23444' points='810%2C150 720%2C300 900%2C300'/%3E%3Cpolygon fill='%23FFF' points='810%2C150 900%2C0 720%2C0'/%3E%3Cpolygon fill='%23DDD' points='990%2C150 900%2C300 1080%2C300'/%3E%3Cpolygon fill='%23444' points='990%2C150 1080%2C0 900%2C0'/%3E%3Cpolygon fill='%23DDD' points='90%2C450 0%2C600 180%2C600'/%3E%3Cpolygon points='90%2C450 180%2C300 0%2C300'/%3E%3Cpolygon fill='%23666' points='270%2C450 180%2C600 360%2C600'/%3E%3Cpolygon fill='%23AAA' points='270%2C450 360%2C300 180%2C300'/%3E%3Cpolygon fill='%23DDD' points='450%2C450 360%2C600 540%2C600'/%3E%3Cpolygon fill='%23999' points='450%2C450 540%2C300 360%2C300'/%3E%3Cpolygon fill='%23999' points='630%2C450 540%2C600 720%2C600'/%3E%3Cpolygon fill='%23FFF' points='630%2C450 720%2C300 540%2C300'/%3E%3Cpolygon points='810%2C450 720%2C600 900%2C600'/%3E%3Cpolygon fill='%23DDD' points='810%2C450 900%2C300 720%2C300'/%3E%3Cpolygon fill='%23AAA' points='990%2C450 900%2C600 1080%2C600'/%3E%3Cpolygon fill='%23444' points='990%2C450 1080%2C300 900%2C300'/%3E%3Cpolygon fill='%23222' points='90%2C750 0%2C900 180%2C900'/%3E%3Cpolygon points='270%2C750 180%2C900 360%2C900'/%3E%3Cpolygon fill='%23DDD' points='270%2C750 360%2C600 180%2C600'/%3E%3Cpolygon points='450%2C750 540%2C600 360%2C600'/%3E%3Cpolygon points='630%2C750 540%2C900 720%2C900'/%3E%3Cpolygon fill='%23444' points='630%2C750 720%2C600 540%2C600'/%3E%3Cpolygon fill='%23AAA' points='810%2C750 720%2C900 900%2C900'/%3E%3Cpolygon fill='%23666' points='810%2C750 900%2C600 720%2C600'/%3E%3Cpolygon fill='%23999' points='990%2C750 900%2C900 1080%2C900'/%3E%3Cpolygon fill='%23999' points='180%2C0 90%2C150 270%2C150'/%3E%3Cpolygon fill='%23444' points='360%2C0 270%2C150 450%2C150'/%3E%3Cpolygon fill='%23FFF' points='540%2C0 450%2C150 630%2C150'/%3E%3Cpolygon points='900%2C0 810%2C150 990%2C150'/%3E%3Cpolygon fill='%23222' points='0%2C300 -90%2C450 90%2C450'/%3E%3Cpolygon fill='%23FFF' points='0%2C300 90%2C150 -90%2C150'/%3E%3Cpolygon fill='%23FFF' points='180%2C300 90%2C450 270%2C450'/%3E%3Cpolygon fill='%23666' points='180%2C300 270%2C150 90%2C150'/%3E%3Cpolygon fill='%23222' points='360%2C300 270%2C450 450%2C450'/%3E%3Cpolygon fill='%23FFF' points='360%2C300 450%2C150 270%2C150'/%3E%3Cpolygon fill='%23444' points='540%2C300 450%2C450 630%2C450'/%3E%3Cpolygon fill='%23222' points='540%2C300 630%2C150 450%2C150'/%3E%3Cpolygon fill='%23AAA' points='720%2C300 630%2C450 810%2C450'/%3E%3Cpolygon fill='%23666' points='720%2C300 810%2C150 630%2C150'/%3E%3Cpolygon fill='%23FFF' points='900%2C300 810%2C450 990%2C450'/%3E%3Cpolygon fill='%23999' points='900%2C300 990%2C150 810%2C150'/%3E%3Cpolygon points='0%2C600 -90%2C750 90%2C750'/%3E%3Cpolygon fill='%23666' points='0%2C600 90%2C450 -90%2C450'/%3E%3Cpolygon fill='%23AAA' points='180%2C600 90%2C750 270%2C750'/%3E%3Cpolygon fill='%23444' points='180%2C600 270%2C450 90%2C450'/%3E%3Cpolygon fill='%23444' points='360%2C600 270%2C750 450%2C750'/%3E%3Cpolygon fill='%23999' points='360%2C600 450%2C450 270%2C450'/%3E%3Cpolygon fill='%23666' points='540%2C600 630%2C450 450%2C450'/%3E%3Cpolygon fill='%23222' points='720%2C600 630%2C750 810%2C750'/%3E%3Cpolygon fill='%23FFF' points='900%2C600 810%2C750 990%2C750'/%3E%3Cpolygon fill='%23222' points='900%2C600 990%2C450 810%2C450'/%3E%3Cpolygon fill='%23DDD' points='0%2C900 90%2C750 -90%2C750'/%3E%3Cpolygon fill='%23444' points='180%2C900 270%2C750 90%2C750'/%3E%3Cpolygon fill='%23FFF' points='360%2C900 450%2C750 270%2C750'/%3E%3Cpolygon fill='%23AAA' points='540%2C900 630%2C750 450%2C750'/%3E%3Cpolygon fill='%23FFF' points='720%2C900 810%2C750 630%2C750'/%3E%3Cpolygon fill='%23222' points='900%2C900 990%2C750 810%2C750'/%3E%3Cpolygon fill='%23222' points='1080%2C300 990%2C450 1170%2C450'/%3E%3Cpolygon fill='%23FFF' points='1080%2C300 1170%2C150 990%2C150'/%3E%3Cpolygon points='1080%2C600 990%2C750 1170%2C750'/%3E%3Cpolygon fill='%23666' points='1080%2C600 1170%2C450 990%2C450'/%3E%3Cpolygon fill='%23DDD' points='1080%2C900 1170%2C750 990%2C750'/%3E%3C/g%3E%3C/pattern%3E%3C/defs%3E%3Crect x='0' y='0' fill='url(%23a)' width='100%25' height='100%25'/%3E%3Crect x='0' y='0' fill='url(%23b)' width='100%25' height='100%25'/%3E%3C/svg%3E");
+  color: #ea1821;
+  background-image: url(../assets/headerHero.jpg);
   background-attachment: fixed;
-  background-size: cover;
-  background-position: center; }
+  background-size: cover; }
 
-main {
-  height: 50vh; }
-
-.wrapper {
-  max-width: 940px;
-  margin: 0 auto; }
+h1 {
+  font-family: 'Righteous', cursive;
+  margin: 25px 0px;
+  text-transform: uppercase;
+  font-size: 3.125rem; }
 
 .generator__landing {
-  padding-top: 300px;
+  padding-top: 150px;
   padding-bottom: 100px; }
+
+.generator__landing h2 {
+  margin: 0 auto;
+  margin-bottom: 250px;
+  width: 50%;
+  font-size: 1.75rem; }
+
+.generator__landing a {
+  padding: 25px 65px;
+  border-radius: 50px;
+  color: #ea1821;
+  display: inline-block;
+  border: 3px solid #1B1D1C;
+  background-color: #1B1D1C;
+  font-size: 1.125rem;
+  -webkit-transition: all 0.5s;
+  -o-transition: all 0.5s;
+  transition: all 0.5s; }
+
+.generator__landing a:hover {
+  border: 3px solid #ea1821;
+  color: #f7f7ff; }
+
+.generator {
+  background-color: #12162D;
+  color: #8b741f;
+  text-align: center;
+  padding-top: 150px;
+  padding-bottom: 125px; }
+
+.guitar__generator h2 {
+  margin-bottom: 50px;
+  font-size: 1.75rem; }
 
 .guitar__generator input {
   display: none; }
 
 .guitar__generator label {
-  border: 1px solid transparent; }
+  display: inline-block;
+  margin-bottom: 50px;
+  padding: 10px 40px;
+  border-radius: 25px;
+  border: 3px solid #8b741f;
+  font-size: 1.125rem;
+  -webkit-transition: all 0.5s;
+  -o-transition: all 0.5s;
+  transition: all 0.5s; }
 
 .guitar__generator label:hover {
-  color: red;
-  border: 1px solid red; }
+  color: #f7f7ff;
+  border: 3px solid #f7f7ff; }
 
-.classAdd {
-  color: red; }
+.guitar__price__choices {
+  margin: 0 auto;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+  -ms-flex-pack: justify;
+  justify-content: space-between;
+  -ms-flex-wrap: wrap;
+  flex-wrap: wrap;
+  width: 50%; }
+
+.guitar__skill__choices {
+  margin: 0 auto;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+  -ms-flex-pack: justify;
+  justify-content: space-between;
+  -ms-flex-wrap: wrap;
+  flex-wrap: wrap;
+  width: 65%; }
+
+.guitar__Genre__choices {
+  margin: 0 auto;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+  -ms-flex-pack: justify;
+  justify-content: space-between;
+  -ms-flex-wrap: wrap;
+  flex-wrap: wrap;
+  width: 90%; }
 
 .generator__submit input {
-  display: block; }
+  display: block;
+  margin: 0 auto;
+  padding: 10px 30px;
+  color: #f7f7ff;
+  border-radius: 25px;
+  border: 3px solid #f7f7ff;
+  visibility: visible;
+  font-size: 1.125rem;
+  -webkit-transition: all 0.5s;
+  -o-transition: all 0.5s;
+  transition: all 0.5s; }
+
+.generator__submit input:hover {
+  color: #8b741f;
+  border: 3px solid #8b741f; }
+
+.classAdd {
+  color: #f7f7ff;
+  border: 3px solid #f7f7ff; }
+
+.guitar-showcase {
+  font-family: 'Righteous', cursive;
+  text-align: center; }
+
+.displayedGuitar {
+  padding-top: 100px;
+  padding-bottom: 100px; }
+
+.displayedGuitar h2 {
+  margin-bottom: 25px;
+  color: #ea1821; }
+
+.displayedGuitar img {
+  margin-bottom: 15px; }
+
+.guitar-showcase button {
+  margin: 0px 10px;
+  margin-bottom: 20px;
+  padding: 25px 65px;
+  border-radius: 50px;
+  border: 3px solid #1B1D1C;
+  background-color: #1B1D1C;
+  color: #ea1821;
+  text-transform: uppercase; }
+
+.guitar-showcase button:hover {
+  border: 3px solid #ea1821;
+  color: #f7f7ff; }
+
+body {
+  font-family: 'Josefin Slab', serif; }
+
+.wrapper {
+  max-width: 940px;
+  margin: 0 auto; }
+
+footer {
+  text-align: center; }

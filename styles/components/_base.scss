@@ -35,13 +35,19 @@ img {
     width: 100%;
 }
 
-blockquote {
-    margin: 0px;
-    padding: 0px;
+input {
+    border: none;
+    background: none;
+    color: inherit;
 }
 
 fieldset {
     border: none;
+}
+
+button {
+    border: none;
+    background: none;
 }
 
 nav {
