@@ -42,3 +42,16 @@ h1 {
     border: 3px solid rgb(234,24,33);
     color: #f7f7ff;
 }
+
+@media (max-width: 870px) {
+    header {
+        background-image: none;
+        background-color: white;
+    }
+}
+
+@media (max-width: 790px) {
+    .generator__landing h2 {
+        margin-bottom: 100px;
+    }
+}
