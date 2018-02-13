@@ -156,7 +156,8 @@ guitarGen.inventory = [
 guitarGen.init = function() {
     guitarGen.pickAGuitar();
     guitarGen.smoothStart();
-    guitarGen.choicePicked();
+    // guitarGen.choicePicked();
+    guitarGen.choiceColorChange();
     guitarGen.joeyButton();
     guitarGen.ryanButton();
     guitarGen.resetButton();
@@ -168,31 +169,22 @@ guitarGen.smoothStart = function() {
     });
 };
 
-guitarGen.choicePicked = function () {
-    $('input').on('change', function(){
-        const currentButton = $(this);
-        const checkedRadio = $(this).is(':checked');
-        if(checkedRadio) {
-            guitarGen.colorChange(currentButton);
-        }
+guitarGen.choiceColorChange = function () {    
+    $('.guitar__price__choices input').on('click', function () {
+        $('.guitar__price__choices input').next().removeClass('classAdd')
+        $(this).next().addClass('classAdd')
     })
-};
 
-guitarGen.colorChange = function (pickedButton) {
-    const labelToColor = pickedButton.next();
-    // $('.guitar__price label').removeClass('classAdd');
-    // $('.guitar__skill label').removeClass('classAdd');
-    $(labelToColor[0]).addClass('classAdd');
-};
-// QUESTION FOR TIM STARTS HERE!
-// Hey Tim, so the problem I had was with the two functions above. Basically the way I have it set up now is that when one of the radio labels is clicked they get a class added onto them to add a highlighted styling. 
-// What I wanted to do is remove the class that causes the highlighting(in my CSS as classAdd) from the previous selection and add it onto the newly picked one. 
-// However, the problem I ran into with the above function is that when any other label got selected all the previous selections lost the highlighting instead of just ones in the same question field. So any suggestiions on how to fix it?
-// I hope I explained my question well, let me know if it's confusing.
-// QUESTION FOR TIM ENDS HERE!
+    $('.guitar__skill__choices input').on('click', function () {
+        $('.guitar__skill__choices input').next().removeClass('classAdd')
+        $(this).next().addClass('classAdd')
+    })
 
-
-// COME BACK TO THE ABOVE IF YOU HAVE TIME, TRY TO MAKE IT SO THAT COLOR IS REMOVED WHEN ANOTHER OPTION UNDER THE SAME QUESTION IS SELECTED.
+    $('.guitar__Genre__choices input').on('click', function () {
+        $('.guitar__Genre__choices input').next().removeClass('classAdd')
+        $(this).next().addClass('classAdd')
+    })
+};    
 
 guitarGen.pickAGuitar = function() {
     $('form').on('submit', function(event) {
@@ -225,6 +217,9 @@ guitarGen.pickAGuitar = function() {
 };
 
 guitarGen.showMyAxe = function(selectedGuitar) {
+    if (!selectedGuitar) {
+        return;
+    };
     $('.guitar-showcase').append(`
         <div class="displayedGuitar">
             <h2>${selectedGuitar.guitar}</h2>
