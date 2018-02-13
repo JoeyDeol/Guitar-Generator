@@ -156,7 +156,6 @@ guitarGen.inventory = [
 guitarGen.init = function() {
     guitarGen.pickAGuitar();
     guitarGen.smoothStart();
-    // guitarGen.choicePicked();
     guitarGen.choiceColorChange();
     guitarGen.joeyButton();
     guitarGen.ryanButton();
