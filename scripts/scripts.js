@@ -184,6 +184,13 @@ guitarGen.colorChange = function (pickedButton) {
     // $('.guitar__skill label').removeClass('classAdd');
     $(labelToColor[0]).addClass('classAdd');
 };
+// QUESTION FOR TIM STARTS HERE!
+// Hey Tim, so the problem I had was with the two functions above. Basically the way I have it set up now is that when one of the radio labels is clicked they get a class added onto them to add a highlighted styling. 
+// What I wanted to do is remove the class that causes the highlighting(in my CSS as classAdd) from the previous selection and add it onto the newly picked one. 
+// However, the problem I ran into with the above function is that when any other label got selected all the previous selections lost the highlighting instead of just ones in the same question field. So any suggestiions on how to fix it?
+// I hope I explained my question well, let me know if it's confusing.
+// QUESTION FOR TIM ENDS HERE!
+
 
 // COME BACK TO THE ABOVE IF YOU HAVE TIME, TRY TO MAKE IT SO THAT COLOR IS REMOVED WHEN ANOTHER OPTION UNDER THE SAME QUESTION IS SELECTED.
 
